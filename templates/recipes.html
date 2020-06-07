@@ -35,18 +35,18 @@
     <section class="recipes">
       <div class="container">
         <div class="row row-flex">
+          {% for recipe in recipes %} 
           <div class="col-md-4 col-sm-6 col-xs-12 mb-4">
             <div class="card">
-              <img src="../static/images/recipe_01.jpg" class="card-img-top" alt="Chicken Curry" />
+              <img src="{{recipe.recipe_image}}" class="card-img-top" alt="Chicken Curry" />
               <div class="card-body">
-                <h5 class="card-title">Chicken Curry</h5>
+                <h5 class="card-title">{{recipe.recipe_name}}</h5>
                 <div class="recipe-subtitle mb-2 text-muted">
-                  <div class="recipe-author"><h6>By Good Food</h6></div>
-                  <div class="recipe-votes"><h6><i class="fas fa-thumbs-up"></i>214</h6></div>
+                  <div class="recipe-author"><h6>{{recipe.recipe_author}}</h6></div>
+                  <div class="recipe-votes"><h6><i class="fas fa-thumbs-up"></i>{{recipe.recipe_votes}}</h6></div>
                 </div>
                 <p class="card-text text-muted">
-                  A Cajun-inspired rice pot recipe with spicy Spanish sausage, sweet
-                  peppers and tomatoes.
+                  {{recipe.recipe_description}}
                 </p>
               </div>
               <div class="card-footer text-center">
@@ -55,63 +55,10 @@
             </div>
             <!--End Card-->
           </div><!--End Col-->
-          <div class="col-md-4 col-sm-6 col-xs-12 mb-4">
-            <div class="card">
-              <img src="../static/images/recipe_02.jpg" class="card-img-top" alt="Chicken Curry" />
-              <div class="card-body">
-                <h5 class="card-title">Chicken Curry</h5>
-                <div class="recipe-subtitle mb-2 text-muted">
-                  <div class="recipe-author"><h6>By Good Food</h6></div>
-                  <div class="recipe-votes"><h6><i class="fas fa-thumbs-up"></i>214</h6></div>
-                </div>
-                <p class="card-text text-muted">
-                  A Cajun-inspired rice pot recipe with spicy Spanish sausage, sweet
-                  peppers and tomatoes.
-                </p>
-              </div>
-              <div class="card-footer text-center">
-                <a href="#" class="btn btn-recipe">View Recipe</a>
-              </div>
-            </div>
-            <!--End Card-->
-          </div><!--End Col-->
-          <div class="col-md-4 col-sm-6 col-xs-12 mb-4">
-            <div class="card">
-              <img src="../static/images/recipe_03.jpg" class="card-img-top" alt="Chicken Curry" />
-              <div class="card-body">
-                <h5 class="card-title">Chicken Curry</h5>
-                <div class="recipe-subtitle mb-2 text-muted">
-                  <div class="recipe-author"><h6>By Good Food</h6></div>
-                  <div class="recipe-votes"><h6><i class="fas fa-thumbs-up"></i>214</h6></div>
-                </div>
-                <p class="card-text text-muted">
-                  A Cajun-inspired rice pot recipe with spicy Spanish sausage, sweet
-                  peppers and tomatoes.
-                </p>
-              </div>
-              <div class="card-footer text-center">
-                <a href="#" class="btn btn-recipe">View Recipe</a>
-              </div>
-            </div>
-            <!--End Card-->
-          </div><!--End Col-->
-        </div><!--End Row-->
+          {% endfor %}
+        </div><!--End Row-->        
       </div><!--End container-->
     </section>
-    <!-- End of recipe cards   -->
-    <!--
-    {% for recipe in recipes %} 
-        {{recipe.recipe_name}}<br>
-        <img src={{recipe.recipe_image}}><br>
-        {{recipe.recipe_description}}<br>
-        {{recipe.recipe_author}}<br>
-        {{recipe.recipe_prep_time}}<br>
-        {{recipe.recipe_cook_time}}<br>
-        {{recipe.recipe_skill_level}}<br>
-        {{recipe.recipe_serving}}<br>
-        {{recipe.recipe_votes}}<br>
-    {% endfor %}
-    -->
     <!--JavaScript at end of body for optimized loading-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
