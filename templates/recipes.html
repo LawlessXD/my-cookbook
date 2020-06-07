@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css"/>
     <!--Import font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"/>
-    <link rel="stylesheet" type="text/css" href="../static/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/style.css')}}" />
    </head>
 
   <body>
@@ -31,6 +31,74 @@
           </div>
         </section>
         <!--End of Navigation Menu-->
+    <!--Start of recipe cards-->
+    <section class="recipes">
+      <div class="container">
+        <div class="row row-flex">
+          <div class="col-md-4 col-sm-6 col-xs-12 mb-4">
+            <div class="card">
+              <img src="../static/images/recipe_01.jpg" class="card-img-top" alt="Chicken Curry" />
+              <div class="card-body">
+                <h5 class="card-title">Chicken Curry</h5>
+                <div class="recipe-subtitle mb-2 text-muted">
+                  <div class="recipe-author"><h6>By Good Food</h6></div>
+                  <div class="recipe-votes"><h6><i class="fas fa-thumbs-up"></i>214</h6></div>
+                </div>
+                <p class="card-text text-muted">
+                  A Cajun-inspired rice pot recipe with spicy Spanish sausage, sweet
+                  peppers and tomatoes.
+                </p>
+              </div>
+              <div class="card-footer text-center">
+                <a href="#" class="btn btn-recipe">View Recipe</a>
+              </div>
+            </div>
+            <!--End Card-->
+          </div><!--End Col-->
+          <div class="col-md-4 col-sm-6 col-xs-12 mb-4">
+            <div class="card">
+              <img src="../static/images/recipe_02.jpg" class="card-img-top" alt="Chicken Curry" />
+              <div class="card-body">
+                <h5 class="card-title">Chicken Curry</h5>
+                <div class="recipe-subtitle mb-2 text-muted">
+                  <div class="recipe-author"><h6>By Good Food</h6></div>
+                  <div class="recipe-votes"><h6><i class="fas fa-thumbs-up"></i>214</h6></div>
+                </div>
+                <p class="card-text text-muted">
+                  A Cajun-inspired rice pot recipe with spicy Spanish sausage, sweet
+                  peppers and tomatoes.
+                </p>
+              </div>
+              <div class="card-footer text-center">
+                <a href="#" class="btn btn-recipe">View Recipe</a>
+              </div>
+            </div>
+            <!--End Card-->
+          </div><!--End Col-->
+          <div class="col-md-4 col-sm-6 col-xs-12 mb-4">
+            <div class="card">
+              <img src="../static/images/recipe_03.jpg" class="card-img-top" alt="Chicken Curry" />
+              <div class="card-body">
+                <h5 class="card-title">Chicken Curry</h5>
+                <div class="recipe-subtitle mb-2 text-muted">
+                  <div class="recipe-author"><h6>By Good Food</h6></div>
+                  <div class="recipe-votes"><h6><i class="fas fa-thumbs-up"></i>214</h6></div>
+                </div>
+                <p class="card-text text-muted">
+                  A Cajun-inspired rice pot recipe with spicy Spanish sausage, sweet
+                  peppers and tomatoes.
+                </p>
+              </div>
+              <div class="card-footer text-center">
+                <a href="#" class="btn btn-recipe">View Recipe</a>
+              </div>
+            </div>
+            <!--End Card-->
+          </div><!--End Col-->
+        </div><!--End Row-->
+      </div><!--End container-->
+    </section>
+    <!-- End of recipe cards   -->
     <!--
     {% for recipe in recipes %} 
         {{recipe.recipe_name}}<br>
