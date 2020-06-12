@@ -15,9 +15,13 @@ app.config["MONGO_URI"] = MONGODB_URI
 mongo = PyMongo(app)
 
 @app.route('/')
-@app.route('/get_recipes')
+@app.route('/recipes')
 def get_recipes():
     return render_template("recipes.html", recipes=mongo.db.recipes.find())
+
+@app.route('/recipe/<recipe_id>')
+def view_recipe(recipe_id):
+    return render_template("viewrecipe.html")
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),

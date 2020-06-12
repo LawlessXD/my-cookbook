@@ -9,11 +9,16 @@
     padding: 0;
     margin: 0;
   }
+html{
+  position: relative;
+  min-height: 100%;
+}
 body{
     font-family: "Merriweather", serif;
     font-size: 16px;
     font-weight: 300;
     line-height: 2;
+    margin: 0 0 50px;
 }
 /* Start of Styling for Navigation Menu */
 /* Adapted from http://www.taniarascia.com/responsive-dropdown-navigation-bar/ */
@@ -242,3 +247,36 @@ nav ul li a:hover::before{
     transform: translateY(-3px);  
     box-shadow: 0px 4px 8px rgba(38, 38, 38, 0.2);
   }
+  /* style for footer */
+  footer{
+    background-color: #ee6e73;
+    color: #ffffff;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 50px;
+    line-height: 50px;
+    width: 100%;
+  }
+  footer .container{
+    min-height: 50px;
+  }
+  footer  a{
+    color: #ffffff;
+  }
+  footer:hover a{
+    color: #ffffff;
+  }
+  .fa-github{
+    font-size: 1.5em;
+  }
+  .footer-note{
+    display: inline-block;
+    float: left;
+  }
+  .footer-icon{
+    display: inline-block;
+    float: right;
+    
+    }
+
