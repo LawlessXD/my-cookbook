@@ -22,15 +22,36 @@
           </div>
           <ul class="nav-list">
             <li><a href="{{ url_for('get_recipes') }}">Home</a></li>
-            <li><a href="{{ url_for('get_recipes') }}">Recipes</a></li>
-            <li><a href="{{ url_for('get_recipes') }}">Login</a></li>
-            <li><a href="{{ url_for('get_recipes') }}">Register</a></li>
+            <li><a href="{{ url_for('get_recipes') }}">All Recipes</a></li>
+            {% if session['user'] %}
+            <li><a href="{{ url_for('get_recipes') }}">Add Recipe</a></li>
+            <li><a href="#!">
+              <i class="fas fa-user"></i>
+              <span>Welcome, </span>
+              <span class="text-capitalize">{{session['first']}}</span>
+            </a>
+              <ul class="nav-dropdown">
+                <li><a href="#!">My Recipes</a></li>
+                <li><a href="{{ url_for('logout') }}">Logout</a></li>
+              </ul>
+            </li>
+            {% else %}
+            <li><a href="{{ url_for('login') }}">Login</a></li>
+            <li><a href="{{ url_for('register') }}">Register</a></li>
+            {% endif %}
           </ul>
         </nav>
       </div>
     </section>
     <!--End of Navigation Menu-->
     <!--Start of main content-->
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for message in messages %}
+          <div class="col s12 flash-messages text-center">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
     {% block content %}{% endblock %}
     <!--End of main content-->
     <!--Start of footer-->
@@ -49,6 +70,20 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
       $(document).ready(function () {
+        $("nav ul li > a:not(:only-child)").click(function (e) {
+          $(this).siblings(".nav-dropdown").toggle();
+          // Close one dropdown menu when selecting another
+          $(".nav-dropdown").not($(this).siblings()).hide();
+          e.stopPropagation();
+        });
+        // Clicking away from dropdown will remove the dropdown class
+        $("html").click(function () {
+          $(".nav-dropdown").hide();
+        });
+        // Hide the dropdown menu when the mouse moved away
+        $(".nav-dropdown").mouseleave(function(){
+          $(this).hide();
+        });
         // Clicking the nav-toggle will toggle the active css
         $("#nav-toggle").on("click", function () {
           this.classList.toggle("active");

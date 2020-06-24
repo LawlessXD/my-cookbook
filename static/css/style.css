@@ -19,6 +19,13 @@ body{
     font-weight: 300;
     line-height: 2;
     margin: 0 0 50px;
+    width: 100%;
+    height: 100%;
+    background-image:url("../images/cooking.jpg");
+    background-size: cover;
+    background-attachment:fixed;
+    margin: 0;
+    padding: 0;
 }
 /* Start of Styling for Navigation Menu */
 /* Adapted from http://www.taniarascia.com/responsive-dropdown-navigation-bar/ */
@@ -64,6 +71,34 @@ nav ul li a::before{
 nav ul li a:hover::before{
     visibility: visible;
     transform: scaleX(1);
+}
+nav ul li ul li a:hover::before {
+  visibility: hidden;
+}
+nav ul li ul li a:hover {
+  color: #fff;
+  background-color:#DE666A;
+  border-color: #DE666A;
+}
+/* Target any anchor element that has child elements i.e. dropdown list */
+nav ul li a:not(:only-child):after {
+  padding-left: 4px;
+  content: " ▾";
+}
+/* Give the dropdown list items a min-width to ensure that the width won't vary based on content.*/
+nav ul li ul li {
+  min-width: 190px;
+}
+nav ul li ul li a {
+  padding: 15px;
+  line-height: 20px;
+  z-index: 1;
+}
+.nav-dropdown {
+  position: absolute;
+  display: none; /* dropdown menu will be toggled via javascript */
+  z-index: 1; /* z-index ensures that the menu item is displayed above the content */
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
 }
 
 /* Styling for mobile navigation */
@@ -134,6 +169,16 @@ nav ul li a:hover::before{
         line-height: 20px;
     }
     nav ul li a:hover::before{
+      visibility: hiddem;
+      transform: scaleX(0);
+  }
+    nav ul li ul li a {
+      padding-left: 30px;
+    }
+    .nav-dropdown {
+      position: static;
+    }
+    nav ul li a:hover::before{
       visibility: hidden;
       transform: scaleX(1);
   }
@@ -145,7 +190,7 @@ nav ul li a:hover::before{
     nav ul li a:last-child:hover{
     border-bottom: 1px solid #DE666A;
     }
-    
+   
 }
 /*Fixing the disappearing navbar bug*/
 @media screen and (min-width: 800px) {
@@ -177,6 +222,9 @@ nav ul li a:hover::before{
   .brand a:visited {
     color: #ffffff;
     text-decoration: none;
+  }
+  .fa-user{
+    padding-right: 10px;
   }
   /* style for recipe cards */
   .recipes{
@@ -279,4 +327,44 @@ nav ul li a:hover::before{
     float: right;
     
     }
+    .container img{
+      width: 100%;
+    }
+/*     /* Login form *
+    .form-title{
+      padding-left: 20px; 
+    } */
+    .fa-sign-in-alt{
+      margin-right: 0.5em;
+      color: #737373;
+    }
+    .login{
+      max-width: 400px;
+      margin: 50px auto;
+      padding: 45px;
+      border-radius: 15px;
+      background-color: #ffffff;
+      color: #737373;
+    }
+    .register{
+      max-width: 600px;
+    }
+    .flash-messages{
+      color: #222222;
+      /* font-weight: bold; */
+      background: #fff1a8;
+      animation: cssAnimation 0s ease-in 5s forwards;
+    }
+    @keyframes cssAnimation {
+      to {
+          width:0;
+          height:0;
+          overflow:hidden;
+      }
+    }
+     @media screen and (max-width: 767px) {
+      .mobile-space {margin-bottom:100px;}
+      }
+
+    
 
