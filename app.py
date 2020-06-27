@@ -25,6 +25,42 @@ def get_recipes():
 def view_recipe(recipe_id):
     return render_template("viewrecipe.html")
 
+@app.route('/addrecipe')
+def add_recipe():
+    # Check if user is not logged in already
+    if 'user' in session:
+        return render_template("addrecipe.html") 
+    else:
+        flash('You must be logged in before you can add a recipe')
+        return redirect(url_for('login'))
+
+@app.route('/saverecipe',methods=['POST'])
+def save_recipe():
+    if 'user' not in session:
+        flash('You must be logged in before you can add or save a recipe')
+        return redirect(url_for('login'))
+    if request.method == 'POST':
+        new_recipe = {
+            'recipe_name': request.form.get('recipe_name'),
+            'recipe_image': request.form.get('recipe_image'),
+            'recipe_type': request.form.get('recipe_type'),
+            'recipe_description': request.form.get('recipe_description'),
+            'recipe_author': session['user'],
+            'recipe_prep_time': request.form.get('recipe_prep_time'),
+            'recipe_cook_time': request.form.get('recipe_cook_time'),
+            'recipe_skill_level': request.form.get('recipe_skill_level'),
+            'recipe_serving': request.form.get('recipe_serving'),
+            'ingredients': request.form.getlist('ingredient'),
+            'method': request.form.getlist('step')
+        }
+        result = mongo.db.recipes.insert_one(new_recipe)
+        if result.inserted_id:
+            flash('Recipe has been successfully added.')
+            return redirect(url_for('get_recipes'))
+        else:
+            flash('There was an issue saving your recipe, please try again.')
+            return redirect(url_for('add_recipe'))  
+
 @app.route('/login', methods=['GET','POST'])
 def login():
     # https://flask.palletsprojects.com/en/1.1.x/quickstart/

@@ -1,0 +1,93 @@
+{% extends 'base.html' %} 
+{% block content %}
+<div class="container-fluid">
+    <div class="form-general recipe-form">
+        <h1 class="col s12 text-center"><i class="fas fa-list"></i><span>Add Recipe</span></h1>
+        <form action="{{ url_for('save_recipe') }}" method="POST" class="col s12">
+            <div class="form-group">
+                <label>Recipe Title</label>
+                <input type="text" class="form-control" id="recipe_name" name="recipe_name" required=""
+                oninvalid="this.setCustomValidity('Recipe name is required!')" oninput="setCustomValidity('')" />
+            </div>  
+            <div class="form-group">
+                <label>Recipe Image URL</label>
+                <input type="url" class="form-control" id="recipe_image" name="recipe_image" required=""
+                oninvalid="this.setCustomValidity('Recipe image url is required')" oninput="setCustomValidity('')" />
+            </div>
+            <div class="form-group">
+                <label>Recipe Description</label>
+                <textarea class="form-control" id="recipe_description" name="recipe_description" required=""
+                oninvalid="this.setCustomValidity('Recipe Description is required')" oninput="setCustomValidity('')"></textarea>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-12 col-md-5">
+                    <label>Recipe Type</label>
+                    <select class="form-control" id="recipe_type" name="recipe_type" required=""
+                    oninvalid="this.setCustomValidity('Recipe type is required')" oninput="setCustomValidity('')" />
+                        <option disabled selected>Select Type</option>
+                        <option>Breakfast</option>
+                        <option>Lunch</option>
+                        <option>Dinner</option>
+                        <option>Dessert</option>
+                        <option>Snack</option>
+                    </select>
+                </div>
+                <div class="form-group col-9 col-md-5">
+                    <label>Recipe Skill</label>
+                    <select class="form-control" id="recipe_skill_level" name="recipe_skill_level" required=""
+                    oninvalid="this.setCustomValidity('Skill Level is required')" oninput="setCustomValidity('')" />
+                        <option disabled selected>Select Skill</option>
+                        <option>Easy</option>
+                        <option>Medium</option>
+                        <option>Hard</option>
+                    </select>
+                </div>
+                <div class="form-group col-3 col-md-2">
+                    <label>Servings</label>
+                    <input type="text" placeholder="4" class="form-control text-center" id="recipe_serving" name="recipe_serving" required=""
+                    oninvalid="this.setCustomValidity('Number of servings is required')" oninput="setCustomValidity('')" />
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label>Preparation Time (mins)</label>
+                    <input type="text" class="form-control" id="recipe_prep_time" name="recipe_prep_time" required=""
+                    oninvalid="this.setCustomValidity('Recipe Preparation Time is required')" oninput="setCustomValidity('')" />
+                </div>
+                <div class="form-group col-md-6">
+                    <label>Cooking Time (mins)</label>
+                    <input type="text" class="form-control" id="recipe_cook_time" name="recipe_cook_time" required=""
+                    oninvalid="this.setCustomValidity('Recipe Cooking Time is required')" oninput="setCustomValidity('')" />
+                 </div>
+            </div>
+            <div id="Ingredients">
+                <label>Ingredients</label>
+                <div class="form-row">
+                    <div class="form-group col-10">
+                        <input type="text" class="form-control" id="ingredient" name="ingredient" required=""
+                        oninvalid="this.setCustomValidity('You must enter an ingredient')" oninput="setCustomValidity('')" />
+                    </div>
+                    <div class="form-group col-2">
+                        <a href="javascript:void(0)" class="add_item" title="Add item"><i class="fas fa-plus-circle"></i></a>                
+                    </div>
+                </div>
+            </div>
+            <div id="Method">
+                <label>Method</label>
+                <div class="form-row">
+                    <div class="form-group col-10">
+                        <input type="text" class="form-control" id="step" name="step" required=""
+                        oninvalid="this.setCustomValidity('You must enter a cooking step')" oninput="setCustomValidity('')" />
+                    </div>
+                    <div class="form-group col-2">
+                        <a href="javascript:void(0)" class="add_step" title="Add Step"><i class="fas fa-plus-circle"></i></a>                
+                    </div>
+                </div>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-recipe btn-lg">Save Recipe</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

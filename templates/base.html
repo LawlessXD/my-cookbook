@@ -24,7 +24,7 @@
             <li><a href="{{ url_for('get_recipes') }}">Home</a></li>
             <li><a href="{{ url_for('get_recipes') }}">All Recipes</a></li>
             {% if session['user'] %}
-            <li><a href="{{ url_for('get_recipes') }}">Add Recipe</a></li>
+            <li><a href="{{ url_for('add_recipe') }}">Add Recipe</a></li>
             <li><a href="#!">
               <i class="fas fa-user"></i>
               <span>Welcome, </span>
@@ -91,6 +91,26 @@
         // Clicking on the nav-toggle which show and hide the menu
         $("#nav-toggle").click(function () {
           $("nav ul").toggle();
+        });
+        // Clicking on the add item will append newitem to parent div
+        var newitem = '<div class="form-row"><div class="form-group col-10"><input type="text" class="form-control" id="ingredient" name="ingredient" required="" oninvalid="this.setCustomValidity("You must enter an ingredient")" oninput="setCustomValidity("")" /></div><div class="form-group col-2"><a href="javascript:void(0)" class="remove_item" title="Remove item"><i class="fas fa-minus-circle"></i></a></div></div>'
+        $('.add_item').click(function() {
+          $('#Ingredients').append(newitem);
+          });
+        // Clicking on the remove item will remove that ingredient  
+        $('#Ingredients').on('click', '.remove_item', function(e){
+          e.preventDefault();
+          $(this).parent().parent('div').remove(); //Remove newitem
+        });
+        // Clicking on the add item will append newitem to parent div
+        var newstep = '<div class="form-row"><div class="form-group col-10"><input type="text" class="form-control" id="step" name="step" required="" oninvalid="this.setCustomValidity("You must enter a cooking step")" oninput="setCustomValidity("")" /></div><div class="form-group col-2"><a href="javascript:void(0)" class="remove_step" title="Remove Step"><i class="fas fa-minus-circle"></i></a></div></div>'
+        $('.add_step').click(function() {
+          $('#Method').append(newstep);
+          });
+        // Clicking on the remove item will remove that ingredient  
+        $('#Method').on('click', '.remove_step', function(e){
+          e.preventDefault();
+          $(this).parent().parent('div').remove(); //Remove newitem
         });
       });
     </script>
