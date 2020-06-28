@@ -24,7 +24,6 @@ def get_recipes():
 @app.route('/recipe/<recipe_id>')
 def view_recipe(recipe_id):
     recipe = mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)})
-    print(recipe)
     return render_template("viewrecipe.html",recipe=recipe)
 
 @app.route('/addrecipe')
@@ -62,6 +61,39 @@ def save_recipe():
         else:
             flash('There was an issue saving your recipe, please try again.')
             return redirect(url_for('add_recipe'))  
+
+@app.route('/editrecipe/<recipe_id>')
+def edit_recipe(recipe_id):
+    recipe = mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)})
+    if session['user'] != recipe['recipe_author']:  
+        flash("Only the author can edit or delete a recipe")
+        return redirect(url_for('view_recipe',recipe_id=recipe_id))
+    else:
+        recipe_types = {'Breakfast','Lunch','Dinner','Dessert','Snack'}
+        skill_level = {'Easy','Medium','Hard'}
+    return render_template("editrecipe.html", recipe=recipe, recipe_types=recipe_types, skill_level=skill_level)  
+
+@app.route('/updaterecipe/<recipe_id>',methods=['POST'])
+def update_recipe(recipe_id):
+        if 'user' not in session:
+            flash('You must be logged in before you can update a recipe')
+            return redirect(url_for('login'))
+        if request.method == 'POST':
+            mongo.db.recipes.update({'_id': ObjectId(recipe_id)},
+                {   
+                    'recipe_name': request.form.get('recipe_name'),
+                    'recipe_image': request.form.get('recipe_image'),
+                    'recipe_type': request.form.get('recipe_type'),
+                    'recipe_description': request.form.get('recipe_description'),
+                    'recipe_author': session['user'],
+                    'recipe_prep_time': request.form.get('recipe_prep_time'),
+                    'recipe_cook_time': request.form.get('recipe_cook_time'),
+                    'recipe_skill_level': request.form.get('recipe_skill_level'),
+                    'recipe_serving': request.form.get('recipe_serving'),
+                    'ingredients': request.form.getlist('ingredient'),
+                    'method': request.form.getlist('step')
+                })
+        return redirect(url_for('get_recipes'))
 
 @app.route('/login', methods=['GET','POST'])
 def login():

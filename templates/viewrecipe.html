@@ -56,6 +56,20 @@
                 </div> 
             </div>
         </div>
+        {% if session['user'] %}
+        <div class="text-center">
+            <span class="edit">
+            <a href="{{url_for('edit_recipe', recipe_id = recipe._id)}}" class="btn btn-recipe">
+                <i class="fas fa-pencil-alt"></i>Edit Recipe
+            </a>
+            </span>
+            <span class="delete">
+            <a href="{{url_for('edit_recipe', recipe_id = recipe._id)}}" class="btn btn-recipe">
+                <i class="far fa-trash-alt"></i>Delete Recipe
+            </a>
+            </span>
+        </div>
+        {% endif %}
              
     </div>
 </div>

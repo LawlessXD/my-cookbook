@@ -425,3 +425,9 @@ footer:hover a {
 .skill-level span, .servings span {
   margin-left: 0.48em;
 }
+.edit{
+  margin-right: 0.5em;
+}
+.fa-pencil-alt, .fa-trash-alt{
+  margin-right: 0.5em;
+}
