@@ -251,34 +251,12 @@ nav ul li ul li a {
 .recipe-author {
   float: left;
 }
-.recipe-votes {
-  float: right;
-}
-.recipe-votes i {
-  color: #00c7f8;
-  padding-right: 10px;
-}
 .recipe-subtitle:after {
   content: "";
   display: table;
   clear: both;
 }
-.recipe-icon-box {
-  float: left;
-  vertical-align: middle;
-}
-.recipe-icon-text {
-  float: left;
-}
-.recipe-icon-box i {
-  color: #00c7f8;
-  padding-right: 10px;
-}
-.recipe-card-icons:after {
-  content: "";
-  display: table;
-  clear: both;
-}
+
 .card-footer {
   background-color: #fff;
   border-top: none;

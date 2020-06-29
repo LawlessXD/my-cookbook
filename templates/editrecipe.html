@@ -19,8 +19,7 @@
             <div class="form-group">
                 <label>Recipe Description</label>
                 <textarea class="form-control" id="recipe_description" name="recipe_description" required=""
-                value={{recipe.recipe_description}}
-                oninvalid="this.setCustomValidity('Recipe Description is required')" oninput="setCustomValidity('')"></textarea>
+                oninvalid="this.setCustomValidity('Recipe Description is required')" oninput="setCustomValidity('')">{{recipe.recipe_description}}</textarea>
             </div>
             <div class="form-row">
                 <div class="form-group col-12 col-md-5">
@@ -44,7 +43,7 @@
                         <option disabled>Select Skill</option>
                         {% for skill in skill_level %}
                             {% if skill == recipe.recipe_skill_level %}
-                                <option value="{{recipe.recipe_skill_level}}" selected>{{recipe.recipe_skill_level}}</option>
+                                <option value="{{ recipe.recipe_skill_level }}" selected>{{ recipe.recipe_skill_level }}</option>
                             {% else %}
                                 <option>{{ skill }}</option>
                             {% endif %}

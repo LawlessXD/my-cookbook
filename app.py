@@ -16,7 +16,6 @@ app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 @app.route('/')
-@app.route('/index')
 @app.route('/recipes')
 def get_recipes():
     return render_template("recipes.html", recipes=mongo.db.recipes.find())
@@ -71,7 +70,18 @@ def edit_recipe(recipe_id):
     else:
         recipe_types = {'Breakfast','Lunch','Dinner','Dessert','Snack'}
         skill_level = {'Easy','Medium','Hard'}
-    return render_template("editrecipe.html", recipe=recipe, recipe_types=recipe_types, skill_level=skill_level)  
+    return render_template("editrecipe.html", recipe=recipe, recipe_types=recipe_types, skill_level=skill_level)
+
+@app.route('/delterecipe/<recipe_id>')
+def delete_recipe(recipe_id):
+    recipe = mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)})
+    if session['user'] != recipe['recipe_author']:  
+        flash("Only the author can edit or delete a recipe")
+        return redirect(url_for('view_recipe',recipe_id=recipe_id))
+    else:
+        mongo.db.recipes.remove({'_id': ObjectId(recipe_id)})
+        flash('Recipe has been successfully deleted.')
+        return redirect(url_for('get_recipes'))
 
 @app.route('/updaterecipe/<recipe_id>',methods=['POST'])
 def update_recipe(recipe_id):
@@ -165,6 +175,7 @@ def register():
                 if isUser:
                     # Add user to the session variable User
                     session['user'] = username
+                    session['first'] = firstname
                     return redirect(url_for('get_recipes'))
                 else:
                     flash("There was an issue saving your details, please try again.")
