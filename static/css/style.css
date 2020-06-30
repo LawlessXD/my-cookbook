@@ -111,6 +111,9 @@ nav ul li ul li a {
   height: 70px;
   width: 70px;
 }
+.mobile-only {
+  display: none;
+}
 #nav-toggle {
   position: absolute;
   left: 18px;
@@ -190,6 +193,12 @@ nav ul li ul li a {
   }
   nav ul li a:last-child:hover {
     border-bottom: 1px solid #de666a;
+  }
+  .desktop-only{
+    display: none;
+  }
+  .mobile-only{
+    display: block;
   }
 }
 /*Fixing the disappearing navbar bug*/
