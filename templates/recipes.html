@@ -7,11 +7,9 @@
       {% for recipe in recipes %}
       <div class="col-md-4 col-sm-6 col-xs-12 mb-4">
         <div class="card">
-          <img
-            src="{{recipe.recipe_image}}"
-            class="card-img-top"
-            alt="Recipe Image"
-          />
+          <div class="embed-responsive embed-responsive-16by9">
+          <img src="{{recipe.recipe_image}}" class="card-img-top embed-responsive-item" alt="Recipe Image" />
+          </div>
           <div class="card-body">
             <h5 class="card-title">{{recipe.recipe_name}}</h5>
             <div class="recipe-subtitle mb-2 text-muted">

@@ -9,10 +9,12 @@
   padding: 0;
   margin: 0;
 }
+
 html {
   position: relative;
   min-height: 100%;
 }
+
 body {
   font-family: "Merriweather", serif;
   font-size: 16px;
@@ -27,21 +29,25 @@ body {
   margin: 0;
   padding: 0;
 }
+
 /* Start of Styling for Navigation Menu */
 /* Adapted from http://www.taniarascia.com/responsive-dropdown-navigation-bar/ */
 nav {
   float: right;
 }
+
 nav ul {
   /*Set display: none temporarily to work on the mobile toogle*/
   list-style: none;
   margin: 0;
   padding: 0;
 }
+
 nav ul li {
   float: left;
   position: relative;
 }
+
 nav ul li a {
   display: block;
   position: relative;
@@ -52,10 +58,12 @@ nav ul li a {
   color: #ffffff;
   text-decoration: none;
 }
+
 nav ul li a:hover {
   color: #ffffff;
   text-decoration: none;
 }
+
 nav ul li a::before {
   content: "";
   position: absolute;
@@ -68,32 +76,39 @@ nav ul li a::before {
   transform: scaleX(0);
   transition: all 0.3s ease-in-out 0s;
 }
+
 nav ul li a:hover::before {
   visibility: visible;
   transform: scaleX(1);
 }
+
 nav ul li ul li a:hover::before {
   visibility: hidden;
 }
+
 nav ul li ul li a:hover {
   color: #fff;
   background-color: #de666a;
   border-color: #de666a;
 }
+
 /* Target any anchor element that has child elements i.e. dropdown list */
 nav ul li a:not(:only-child):after {
   padding-left: 4px;
   content: " ▾";
 }
+
 /* Give the dropdown list items a min-width to ensure that the width won't vary based on content.*/
 nav ul li ul li {
   min-width: 190px;
 }
+
 nav ul li ul li a {
   padding: 15px;
   line-height: 20px;
   z-index: 1;
 }
+
 .nav-dropdown {
   position: absolute;
   display: none; /* dropdown menu will be toggled via javascript */
@@ -134,15 +149,19 @@ nav ul li ul li a {
   content: "";
   transition: all 300ms ease-in-out;
 }
+
 #nav-toggle span:before {
   top: -10px;
 }
+
 #nav-toggle span:after {
   bottom: -10px;
 }
+
 #nav-toggle.active span {
   background-color: transparent;
 }
+
 #nav-toggle.active span:before,
 #nav-toggle.active span:after {
   top: 0;
@@ -250,6 +269,12 @@ nav ul li ul li a {
   border-radius: 4px;
   box-shadow: 0px 4px 8px rgba(38, 38, 38, 0.2);
 }
+
+/* Fix image for recipe-cards */
+.embed-responsive .card-img-top {
+  object-fit: cover;
+}
+
 .recipe-subtitle {
   margin-top: -0.375rem;
   font-size: 1rem;
