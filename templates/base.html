@@ -114,7 +114,94 @@
           e.preventDefault();
           $(this).parent().parent('div').remove(); //Remove newitem
         });
+
       });
+
+      // Validate Form Function
+      function validateForm(){
+          var username = $('#username').val();
+          var password1 = $('#password1').val();
+          var password2 = $('#password2').val();
+          var firstname = $('#firstname').val();
+          var lastname = $('#lastname').val();
+          var email = $('#email').val();
+          var errors = 0;  
+          console.log(errors);
+          
+          // Validate username
+          if (username.length == 0 || username.length <= 4){
+            $('#username-message').removeClass().addClass("error-message");
+            $('#username').removeClass("success").addClass("error");
+            $('#username-message').html("Username cannot be blank & must be greater than four characters.");
+            errors++;
+          }
+          else{
+            $('#username-message').removeClass().addClass("success-message").html("Looks good!");
+            $('#username').removeClass("error").addClass("success");
+          }
+          // Validate Password Fields
+          if (password1.length == 0 || password1.length <= 6) {
+            $('#password-message').removeClass().addClass("error-message").html("Password cannot be blank & must be greater than six characters.");
+            $('#password1').removeClass("success").addClass("error");
+            errors++;
+          }
+          else if (password2.length < 1) {
+            $('#password-message').removeClass().addClass("error-message").html("Please enter the confirm password");
+            $('#password2').removeClass("success").addClass("error");
+            errors++;
+          }
+          else if (password1 != password2) {
+            $('#password-message').removeClass().addClass("error-message").html("Passwords do not match");
+            $('#password1').removeClass("success").addClass("error");
+            $('#password2').removeClass("success").addClass("error");
+            errors++;
+          }
+          else {
+            $('#password-message').removeClass().addClass("success-message").html("Looks good!");
+            $('#password1').removeClass("error").addClass("success");
+            $('#password2').removeClass("error").addClass("success");
+          }
+          
+          // Validate first and last name length
+          if (firstname.length < 1 || lastname.length < 1) {
+            $('#firstname').removeClass("success").addClass("error");
+            $('#lastname').removeClass("success").addClass("error");
+            $('#name-message').removeClass().addClass("error-message").html("First or Last name cannot be blank");
+            errors++;
+          }
+          else {
+            $('#name-message').removeClass().addClass("success-message");
+            $('#name-message').html("Looks good!");
+            $('#firstname').removeClass("error").addClass("success");
+            $('#lastname').removeClass("error").addClass("success");
+          }
+
+          //Validate email address
+          if (email.length < 1){
+            $('#email').removeClass("success").addClass("error");
+            $('#email-message').removeClass().addClass("error-message").html("Email address cannot be blank");
+            errors++;
+          }
+          else if (!validEmail(email)){
+            $('#email').removeClass("success").addClass("error");
+            $('#email-message').removeClass().addClass("error-message").html("Email address is invalid");
+            errors++;
+          }
+          else {
+            $('#email-message').removeClass().addClass("success-message").html("Looks good!");
+            $('#email').removeClass("error").addClass("success");
+          }
+          
+          // Validate Email Function
+          function validEmail(e){
+          return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e);
+          }
+          
+          // If errors exist return false
+          if (errors > 0){
+            return false;
+          }
+      }
     </script>
   </body>
 </html>

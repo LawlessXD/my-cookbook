@@ -443,3 +443,16 @@ footer:hover a {
 .fa-pencil-alt, .fa-trash-alt{
   margin-right: 0.5em;
 }
+/* form validation */
+.error{
+  border-color: #e74c3c;
+}
+.error-message{
+  color: #e74c3c;
+}
+.success{
+  border-color: #2ecc71;
+}
+.success-message{
+  color: #2ecc71;
+}

@@ -146,13 +146,13 @@ def register():
     if request.method == 'POST':
         # retrieve the data from the registration form
         username = request.form.get('username').lower()
-        password = request.form.get('password').lower()    
-        confirm_password = request.form.get('confirm_password').lower()
+        password1 = request.form.get('password1').lower()    
+        password2 = request.form.get('password2').lower()
         firstname = request.form.get('firstname').lower()
         lastname = request.form.get('lastname').lower()
         email = request.form.get('email').lower()
         # Check if the passwords entered match
-        if password== confirm_password:
+        if password1 == password2:
             # Check the username does not exist already
             isUser = mongo.db.users.find_one({'username': username})
             if isUser:
@@ -160,11 +160,11 @@ def register():
                 return redirect(url_for('register'))
             # If user does not exist then add the user to the DB
             else:
-                hashed_password = generate_password_hash(password,method='pbkdf2:sha256')
+                hashed_password = generate_password_hash(password1,method='pbkdf2:sha256')
                 mongo.db.users.insert_one(
                     {
                         'username': username,
-                        'password': hashed_password,
+                        'password1': hashed_password,
                         'firstname': firstname,
                         'lastname': lastname,
                         'email': email
