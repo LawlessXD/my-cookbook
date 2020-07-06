@@ -1,4 +1,6 @@
+<!--View Recipes Template which inherits base.html template-->
 {% extends 'base.html' %} 
+<!--Start of View Recipes Content-->
 {% block content %}
 <div class="container">
     <div class="recipe-wrapper">
@@ -8,11 +10,9 @@
             </div>
             <div class="col-12 col-md-6 mb-4">
                 <h4 class="col s12 recipe-title">{{recipe.recipe_name}}</h4>
+                <!-- Using clearfix class to clear float the div-->
                 <div class="clearfix">
                     <div class="recipe-author"><h6>By {{recipe.recipe_author}}</h6></div>
-                </div>
-                <div>
-
                 </div>
                 <div class="row cooking-time">
                     <div class="col-2 cooking-time-icon"><i class="far fa-clock"></i></div>
@@ -39,6 +39,7 @@
                 <div><h4 class="col s12 recipe-title">Ingredients</h4></div>
                 <div>
                     <ul class="ml-4">
+                    <!-- Iterate through ingredoents and create an unordered list item for each-->
                     {% for ingredient in recipe.ingredients %}
                         <li>{{ingredient}}</li>
                     {% endfor %}
@@ -49,6 +50,7 @@
                 <div><h4 class="col s12 recipe-title">Method</h4></div>
                 <div>
                     <ol class="ml-4">
+                    <!-- Iterate through steps and create an ordered list item for each-->
                     {% for step in recipe.method %}
                         <li>{{step}}</li>
                     {% endfor %}
@@ -56,6 +58,7 @@
                 </div> 
             </div>
         </div>
+        <!-- If the user is logged in, show the edit and delete buttons-->
         {% if session['user'] %}
         <div class="text-center">
                 <span class="edit">
@@ -70,7 +73,7 @@
                 </span>
         </div>
         {% endif %}
-        <!-- Modal -->
+        <!-- Modal for delete confirmation-->
         <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -93,3 +96,4 @@
     </div>
 </div>
 {% endblock %}
+<!-- End of view recipes-->

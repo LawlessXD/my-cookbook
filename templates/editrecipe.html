@@ -1,8 +1,12 @@
+<!--Edit Recipe Template which inherits base.html template-->
 {% extends 'base.html' %} 
+<!-- Start of Add Recipe Form, this is effectively cloned from the add recipe template-->
 {% block content %}
 <div class="container-fluid">
     <div class="form-general recipe-form">
         <h1 class="col s12 text-center"><i class="fas fa-list"></i><span>Edit Recipe</span></h1>
+        <!-- Form uses HTML5 attributes for basic form validation-->
+        <!-- form sends the updated recipe to update_recipe function -->
         <form action="{{ url_for('update_recipe', recipe_id = recipe._id)}}" method="POST" class="col s12">
             <div class="form-group">
                 <label>Recipe Title</label>
@@ -52,6 +56,7 @@
                 </div>
                 <div class="form-group col-3 col-md-2">
                     <label>Servings</label>
+                    <!-- Using type=number restricts the field to numbers only-->
                     <input type="number" placeholder="4" class="form-control text-center" id="recipe_serving" name="recipe_serving" required=""
                     value="{{recipe.recipe_serving}}"
                     oninvalid="this.setCustomValidity('Number of servings is required')" oninput="setCustomValidity('')" />
@@ -73,7 +78,9 @@
             </div>
             <div id="Ingredients">
                 <label>Ingredients</label>
+                <!-- Iterate through ingredients list-->
                 {% for ingredient in recipe.ingredients %}
+                    <!-- HTML for first ingredient-->
                     {% if ingredient == recipe.ingredients[0] %}
                     <div class="form-row">
                         <div class="form-group col-10">
@@ -86,6 +93,7 @@
                         </div>
                     </div>
                     {% else %}
+                    <!-- HTML for subsequent ingredients-->
                     <div class="form-row">
                         <div class="form-group col-10">
                             <input type="text" class="form-control" id="ingredient" name="ingredient" required=""
@@ -101,7 +109,9 @@
             </div>
             <div id="Method">
                 <label>Method</label>
+                <!-- Iterate through steps-->
                 {% for step in recipe.method %}
+                    <!-- HTML for first step-->
                     {% if step == recipe.method[0] %}
                         <div class="form-row">
                             <div class="form-group col-10">
@@ -113,6 +123,7 @@
                                 <a href="javascript:void(0)" class="add_step" title="Add Step"><i class="fas fa-plus-circle"></i></a>                
                             </div>
                         </div>
+                    <!-- HTML for subsequent steps-->
                     {% else %}
                         <div class="form-row">
                             <div class="form-group col-10">
@@ -134,3 +145,4 @@
     </div>
 </div>
 {% endblock %}
+<!-- End of edit recipe-->

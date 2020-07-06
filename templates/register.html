@@ -9,6 +9,7 @@
             <div class="form-general register-form">
                 <h1 class="col s12"><i class="fas fa-sign-in-alt"></i><span class="form-title">Register</span></h1>
                 <!-- form for register route, only submits once validation is passed-->
+                <!-- Validation messages appear within small tags for each field-->
                 <form action="{{ url_for('register') }}" method="POST" onsubmit="return validateForm()" class="col s12">
                     <div class="form-group">
                         <label>Username</label>
@@ -55,3 +56,4 @@
     </div>
 </div>
 {% endblock %}
+<!-- End Register content-->

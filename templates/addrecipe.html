@@ -1,8 +1,12 @@
+<!--Add Recipe Template which inherits base.html template-->
 {% extends 'base.html' %} 
+<!-- Start of Add Recipe Form-->
 {% block content %}
 <div class="container-fluid">
     <div class="form-general recipe-form">
         <h1 class="col s12 text-center"><i class="fas fa-list"></i><span>Add Recipe</span></h1>
+        <!-- Form uses HTML5 attributes for basic form validation-->
+        <!-- On submit data is sent to save_recipe function in the web application-->
         <form action="{{ url_for('save_recipe') }}" method="POST" class="col s12">
             <div class="form-group">
                 <label>Recipe Title</label>
@@ -51,6 +55,7 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label>Preparation Time (mins)</label>
+                    <!-- Using type=number restricts the field to numbers only-->
                     <input type="number" class="form-control" id="recipe_prep_time" name="recipe_prep_time" required=""
                     oninvalid="this.setCustomValidity('Recipe Preparation Time is required')" oninput="setCustomValidity('')" />
                 </div>
@@ -68,6 +73,7 @@
                         oninvalid="this.setCustomValidity('You must enter an ingredient')" oninput="setCustomValidity('')" />
                     </div>
                     <div class="form-group col-2">
+                        <!-- Using Javascript to add additional field for ingredients-->
                         <a href="javascript:void(0)" class="add_item" title="Add item"><i class="fas fa-plus-circle"></i></a>                
                     </div>
                 </div>
@@ -80,6 +86,7 @@
                         oninvalid="this.setCustomValidity('You must enter a cooking step')" oninput="setCustomValidity('')" />
                     </div>
                     <div class="form-group col-2">
+                        <!-- Using Javascript to add additional steps as needed-->
                         <a href="javascript:void(0)" class="add_step" title="Add Step"><i class="fas fa-plus-circle"></i></a>                
                     </div>
                 </div>
@@ -91,3 +98,4 @@
     </div>
 </div>
 {% endblock %}
+<!-- End of Add Recipe Form-->

@@ -4,9 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- Bootstrap CDN-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" />
     <!--Import font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
+    <!-- Using Jinja to import CSS file from static folder-->
     <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/style.css')}}" />
   </head>
   <body>
@@ -17,13 +19,16 @@
           <a href="#!">My CookBook</a>
         </div>
         <nav>
+          <!-- Used for mobile only-->
           <div class="nav-mobile">
             <a id="nav-toggle" href="#!"><span></span></a>
           </div>
           <ul class="nav-list">
             <li><a href="{{ url_for('get_recipes') }}">All Recipes</a></li>
+            <!-- Using jinja if statement to display different menu for logged in user-->
             {% if session['user'] %}
             <li><a href="{{ url_for('add_recipe') }}">Add Recipe</a></li>
+            <!-- Welcome is only displayed on large screens-->
             <li class="desktop-only"><a href="#!">
               <i class="fas fa-user"></i>
               <span>Welcome, </span>
@@ -33,7 +38,9 @@
                 <li><a href="{{ url_for('logout') }}">Logout</a></li>
               </ul>
             </li>
+            <!-- Logout is only displayed on mobile dropdown-->
             <li class="mobile-only"><a href="{{ url_for('logout') }}">Logout</a></li>
+            <!-- if user is not logged in, display login & Regiser-->
             {% else %}
             <li><a href="{{ url_for('login') }}">Login</a></li>
             <li><a href="{{ url_for('register') }}">Register</a></li>
@@ -44,6 +51,8 @@
     </section>
     <!--End of Navigation Menu-->
     <!--Start of main content-->
+    <!-- Flash messages are displayed below the nav bar where applicable-->
+    <!-- Javascript is used to remove the message after 5 seconds-->   
     {% with messages = get_flashed_messages() %}
       {% if messages %}
         {% for message in messages %}
