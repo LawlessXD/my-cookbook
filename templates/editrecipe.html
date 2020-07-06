@@ -52,7 +52,7 @@
                 </div>
                 <div class="form-group col-3 col-md-2">
                     <label>Servings</label>
-                    <input type="text" placeholder="4" class="form-control text-center" id="recipe_serving" name="recipe_serving" required=""
+                    <input type="number" placeholder="4" class="form-control text-center" id="recipe_serving" name="recipe_serving" required=""
                     value="{{recipe.recipe_serving}}"
                     oninvalid="this.setCustomValidity('Number of servings is required')" oninput="setCustomValidity('')" />
                 </div>
@@ -60,13 +60,13 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label>Preparation Time (mins)</label>
-                    <input type="text" class="form-control" id="recipe_prep_time" name="recipe_prep_time" required=""
+                    <input type="number" class="form-control" id="recipe_prep_time" name="recipe_prep_time" required=""
                     value="{{recipe.recipe_prep_time}}"
                     oninvalid="this.setCustomValidity('Recipe Preparation Time is required')" oninput="setCustomValidity('')" />
                 </div>
                 <div class="form-group col-md-6">
                     <label>Cooking Time (mins)</label>
-                    <input type="text" class="form-control" id="recipe_cook_time" name="recipe_cook_time" required=""
+                    <input type="number" class="form-control" id="recipe_cook_time" name="recipe_cook_time" required=""
                     value="{{recipe.recipe_cook_time}}"
                     oninvalid="this.setCustomValidity('Recipe Cooking Time is required')" oninput="setCustomValidity('')" />
                  </div>
