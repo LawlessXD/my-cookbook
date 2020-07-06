@@ -183,6 +183,7 @@ nav ul li ul li a {
   }
   nav ul {
     display: none;
+    /* Using absolute positioning with high Z Index to allow mobile menu appear above content */ 
     position: absolute;
     width: 100%;
     z-index: 10;
@@ -401,6 +402,8 @@ footer:hover a {
     margin-bottom: 100px;
   }
 }
+
+/* Style for view recipes */
 .recipe-wrapper{
   max-width: 800px;
   padding: 45px;
@@ -446,7 +449,7 @@ footer:hover a {
 .fa-pencil-alt, .fa-trash-alt{
   margin-right: 0.5em;
 }
-/* form validation */
+/* form validation styling used on register form */
 .error{
   border-color: #e74c3c;
 }
