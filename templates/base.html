@@ -30,11 +30,9 @@
               <span class="text-capitalize">{{session['first']}}</span>
             </a>
               <ul class="nav-dropdown">
-                <li><a href="#!">My Recipes</a></li>
                 <li><a href="{{ url_for('logout') }}">Logout</a></li>
               </ul>
             </li>
-            <li class="mobile-only"><a href="#!">My Recipes</a></li>
             <li class="mobile-only"><a href="{{ url_for('logout') }}">Logout</a></li>
             {% else %}
             <li><a href="{{ url_for('login') }}">Login</a></li>

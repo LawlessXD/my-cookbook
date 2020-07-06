@@ -183,6 +183,9 @@ nav ul li ul li a {
   }
   nav ul {
     display: none;
+    position: absolute;
+    width: 100%;
+    z-index: 10;
   }
   nav ul li {
     float: none;
