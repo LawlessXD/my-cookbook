@@ -224,12 +224,6 @@ nav ul li ul li a {
     display: block;
   }
 }
-/*Fixing the disappearing navbar bug*/
-@media screen and (min-width: 800px) {
-  .nav-list {
-    display: block !important;
-  }
-}
 .navigation {
   height: 70px;
   background: #ee6e73;
@@ -257,6 +251,11 @@ nav ul li ul li a {
 }
 .fa-user {
   padding-right: 10px;
+}
+@media screen and (max-width: 400px) {
+  .brand {
+    font-size: 2.0em;
+  }
 }
 /* style for recipe cards */
 .recipes {
