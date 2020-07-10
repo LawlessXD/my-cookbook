@@ -251,6 +251,9 @@ nav ul li ul li a {
 .navigation {
   height: 70px;
   background: #ee6e73;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
 .nav-container {
@@ -281,6 +284,8 @@ nav ul li ul li a {
     font-size: 2.0em;
   }
 }
+
+
 /* style for recipe cards */
 .recipes {
   padding-top: 20px;
