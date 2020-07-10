@@ -23,6 +23,17 @@ mongo = PyMongo(app)
 def get_recipes():
     return render_template("recipes.html", recipes=mongo.db.recipes.find())
 
+@app.route('/recipe/<recipe_type>')
+def filter_recipes(recipe_type):
+    print(recipe_type)
+    filtered_recipes = []
+    recipes = mongo.db.recipes.find()
+    for recipe in recipes:
+        if recipe['recipe_type'] == recipe_type: 
+            filtered_recipes.append(recipe)
+    print(filtered_recipes)
+    return render_template("filterrecipes.html", recipes=filtered_recipes)
+
 # route decorator for a single recipe, view_recipe takes recipe_id as an input
 # view_recipe uses recipe_id to find the associated recipe in the DB
 @app.route('/recipe/<recipe_id>')

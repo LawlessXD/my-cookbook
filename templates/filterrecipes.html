@@ -1,0 +1,43 @@
+<!--Recipes Template which inherits base.html template-->
+{% extends 'base.html' %} 
+<!-- Start of recipe content-->
+{% block content %}
+<!--Start of recipe cards-->
+<section class="recipes">
+  <div class="container">
+    <!-- Using row-flex allows recipes to be added dynamically-->
+    <div class="row row-flex">
+      <!-- Iterate through each recipe in the DB and display a card for each-->
+      {% for recipe in recipes %}
+      <div class="col-xs-12 col-sm-6 col-md-4 mb-4">
+        <div class="card">
+          <!--Bootstrap class used to make recipe card image consistent-->
+          <div class="embed-responsive embed-responsive-4by3">
+          <img src="{{recipe.recipe_image}}" class="card-img-top embed-responsive-item" alt="Recipe Image" />
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">{{recipe.recipe_name}}</h5>
+            <div class="recipe-subtitle mb-2 text-muted">
+              <div class="recipe-author"><h6>By {{recipe.recipe_author}}</h6></div>
+            </div>
+            <p class="card-text text-muted">
+              {{recipe.recipe_description}}
+            </p>
+          </div>
+          <div class="card-footer text-center">
+            <!-- View Recipe button calls view_recipe function within web application-->
+            <a href="{{url_for('view_recipe', recipe_id = recipe._id)}}"
+              class="btn btn-recipe">View Recipe</a>
+          </div>
+        </div>
+        <!--End Card-->
+      </div>
+      <!--End Col-->
+      {% endfor %}
+    </div>
+    <!--End Row-->
+  </div>
+  <!--End container-->
+</section>
+{% endblock %}
+<!--End of recipes content-->

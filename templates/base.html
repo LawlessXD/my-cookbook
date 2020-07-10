@@ -26,6 +26,25 @@
           </div>
           <ul class="nav-list">
             <li><a href="{{ url_for('get_recipes') }}">All Recipes</a></li>
+            <li><a href="#!">Filter Recipes</a>
+              <ul class="nav-dropdown">
+                <li>
+                  <a href="{{ url_for('filter_recipes',recipe_type = 'Breakfast')}}"">Breakfast</a>
+                </li>
+                <li>
+                  <a href="{{ url_for('filter_recipes',recipe_type = 'Lunch')}}">Lunch</a>
+                </li>
+                <li>
+                  <a href="{{ url_for('filter_recipes',recipe_type = 'Dinner')}}"">Dinner</a>
+                </li>
+                <li>
+                  <a href="{{ url_for('filter_recipes',recipe_type = 'Dessert')}}"">Dessert</a>
+                </li>
+                <li>
+                  <a href="{{ url_for('filter_recipes',recipe_type = 'Snack')}}"">Snack</a>
+                </li>
+              </ul>
+            </li>
             <!-- Using jinja if statement to display different menu for logged in user-->
             {% if session['user'] %}
             <li><a href="{{ url_for('add_recipe') }}">Add Recipe</a></li>
