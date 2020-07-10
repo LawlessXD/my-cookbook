@@ -86,7 +86,7 @@ The features that will be implemented at a later date are listed below:
 
 ## Database Schema
 
-The web application connects to a MongoDB database with the information stored in two collections ** Recipes ** and ** Users **. The schema was created using [Mongo.tools ](https://mongo.tools/).
+The web application connects to a MongoDB database with the information stored in two collections **Recipes** and **Users**. The schema was created using [Mongo.tools ](https://mongo.tools/).
 
 The username field in the users collection is inserted into the recipes collection when a recipe is created.
 

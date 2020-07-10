@@ -196,7 +196,7 @@ def register():
                 mongo.db.users.insert_one(
                     {
                         'username': username,
-                        'password1': hashed_password,
+                        'password': hashed_password,
                         'firstname': firstname,
                         'lastname': lastname,
                         'email': email
