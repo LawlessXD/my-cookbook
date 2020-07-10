@@ -158,10 +158,10 @@ def login():
                 flash("You have been successfully logged in!")
                 return redirect(url_for('get_recipes'))
             else:
-                flash("Invalid Password, please check and try again!")
+                flash("Invalid login details, please check and try again!")
                 return redirect(url_for('login'))
         else:
-            flash("Invalid Username, please check and try again!")    
+            flash("Invalid login details, please check and try again!")    
             return redirect(url_for('login'))
     # show the login form if method is get    
     return render_template("login.html")
