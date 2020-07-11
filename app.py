@@ -23,23 +23,22 @@ mongo = PyMongo(app)
 def get_recipes():
     return render_template("recipes.html", recipes=mongo.db.recipes.find())
 
-@app.route('/recipe/<recipe_type>')
-def filter_recipes(recipe_type):
-    print(recipe_type)
-    filtered_recipes = []
-    recipes = mongo.db.recipes.find()
-    for recipe in recipes:
-        if recipe['recipe_type'] == recipe_type: 
-            filtered_recipes.append(recipe)
-    print(filtered_recipes)
-    return render_template("filterrecipes.html", recipes=filtered_recipes)
-
 # route decorator for a single recipe, view_recipe takes recipe_id as an input
 # view_recipe uses recipe_id to find the associated recipe in the DB
 @app.route('/recipe/<recipe_id>')
 def view_recipe(recipe_id):
     recipe = mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)})
     return render_template("viewrecipe.html",recipe=recipe)
+
+# route decorator for recipes filtered by type
+@app.route('/recipes/<recipe_type>')
+def filter_recipes(recipe_type):
+    filtered_recipes = []
+    recipes = mongo.db.recipes.find()
+    for recipe in recipes:
+        if recipe['recipe_type'] == recipe_type: 
+            filtered_recipes.append(recipe)
+    return render_template("filterrecipes.html", recipes=filtered_recipes)
 
 # route decorator for adding a recipe
 @app.route('/addrecipe')
@@ -242,4 +241,4 @@ def logout():
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=(os.environ.get('PORT')),
-            debug=False)
+            debug=True)
