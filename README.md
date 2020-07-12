@@ -303,14 +303,21 @@ SECRET_KEY | `<your_secret_key>`
 
 16. The application is now deployed and can be viewed on [Heroku](https://mycookbook-dl.herokuapp.com/).
 
-## Acknowledgement & Credits
+## Credits
 
-I would like to thank my mentor Precious Ijege for his guidance and support throughout the project review sessions and Anna Greaves for a very informative guide to setting up environment variables.
+### Content
 
-I would like to credit https://github.com/MiroslavSvec/DCD_lead for the login and register functionality.
+I would like to credit [MirslavSvec](https://github.com/MiroslavSvec/DCD_lead) for the login and register functionality.
 
-How to add fields dynamically was achieved following the guide at https://www.codexworld.com/add-remove-input-fields-dynamically-using-jquery/
+How to add fields dynamically was achieved following the guide at [Codeworld](https://www.codexworld.com/add-remove-input-fields-dynamically-using-jquery/)
 
 ### Media
 
-The recipes used on the site are taken from [BBC Good Food Recipes](https://www.bbcgoodfood.com/recipes),
+The recipe images used on the site are taken from [BBC Good Food Recipes](https://www.bbcgoodfood.com/recipes).
+
+### Acknowledgment 
+
+I would like to thank my mentor Precious
+ Ijege for his guidance and support throughout the project review sessions.
+
+I would also like to thank [Anna Greaves](https://code-institute-room.slack.com/team/UF94247RB) for a very informative [guide to setting up environment variables](https://code-institute-room.slack.com/archives/CP07TN38Q/p1576743956008500).
