@@ -505,3 +505,10 @@ footer:hover a {
 .success-message{
   color: #2ecc71;
 }
+.filter_message{
+  margin: 50px auto;
+  padding: 45px;
+  border-radius: 15px;
+  background-color: #ffffff;
+  color: #737373;
+}

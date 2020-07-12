@@ -35,10 +35,15 @@ def view_recipe(recipe_id):
 def filter_recipes(recipe_type):
     filtered_recipes = []
     recipes = mongo.db.recipes.find()
+    total_recipes = recipes.count()
+    print(total_recipes)
     for recipe in recipes:
         if recipe['recipe_type'] == recipe_type: 
             filtered_recipes.append(recipe)
-    return render_template("filterrecipes.html", recipes=filtered_recipes)
+    
+    total_filtered = len(filtered_recipes)
+    print("The length of list is: ", total_filtered)
+    return render_template("filterrecipes.html", recipes=filtered_recipes, total_recipes=total_recipes, total_filtered=total_filtered, recipe_type=recipe_type)
 
 # route decorator for adding a recipe
 @app.route('/addrecipe')
