@@ -45,7 +45,7 @@ At this stage, [wireframes](https://github.com/LawlessXD/my-cookbook/tree/master
 - Add a recipe
 - Edit a recipe
 
-The design in each of the [wireframes](https://github.com/LawlessXD/my-cookbook/tree/master/wireframes) is divided into three sections; Navigation, Content, and Footer. The Navigation and Footer is the same for each of the wireframes with different for each scenario.
+The design in each of the [wireframes](https://github.com/LawlessXD/my-cookbook/tree/master/wireframes) is divided into three sections; Navigation, Content, and Footer. The Navigation and Footer is the same for each of the wireframes with different content for each scenario.
 
 ### Surface
 
@@ -317,7 +317,6 @@ The recipe images used on the site are taken from [BBC Good Food Recipes](https:
 
 ### Acknowledgment 
 
-I would like to thank my mentor Precious
- Ijege for his guidance and support throughout the project review sessions.
+I would like to thank my mentor [Precious Ijege](https://code-institute-room.slack.com/team/USMD0GEAD) for his guidance and support throughout the project review sessions.
 
 I would also like to thank [Anna Greaves](https://code-institute-room.slack.com/team/UF94247RB) for a very informative [guide to setting up environment variables](https://code-institute-room.slack.com/archives/CP07TN38Q/p1576743956008500).
