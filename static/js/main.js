@@ -53,7 +53,6 @@ $(document).ready(function () {
       var lastname = $('#lastname').val();
       var email = $('#email').val();
       var errors = 0;  
-      console.log(errors);
       
       // Validate username
       if (username.length == 0 || username.length <= 4){
@@ -66,6 +65,7 @@ $(document).ready(function () {
         $('#username-message').removeClass().addClass("success-message").html("Looks good!");
         $('#username').removeClass("error").addClass("success");
       }
+      
       // Validate Password Fields
       if (password1.length == 0 || password1.length <= 6) {
         $('#password-message').removeClass().addClass("error-message").html("Password cannot be blank & must be greater than six characters.");

@@ -140,9 +140,11 @@ nav ul li ul li a {
   height: 70px;
   width: 70px;
 }
+
 .mobile-only {
   display: none;
 }
+
 #nav-toggle {
   position: absolute;
   left: 18px;
@@ -150,6 +152,7 @@ nav ul li ul li a {
   cursor: pointer;
   padding: 10px 35px 16px 0px;
 }
+
 #nav-toggle span,
 #nav-toggle span:before,
 #nav-toggle span:after {
@@ -182,25 +185,30 @@ nav ul li ul li a {
 #nav-toggle.active span:after {
   top: 0;
 }
+
 #nav-toggle.active span:before {
   -webkit-transform: rotate(45deg);
       -ms-transform: rotate(45deg);
           transform: rotate(45deg);
 }
+
 #nav-toggle.active span:after {
   -webkit-transform: rotate(-45deg);
       -ms-transform: rotate(-45deg);
           transform: rotate(-45deg);
 }
+
 /*Mobile Breakpoint */
 @media only screen and (max-width: 999px) {
   .nav-mobile {
     display: block;
   }
+
   nav {
     width: 100%;
     padding: 70px 0 15px;
   }
+
   nav ul {
     display: none;
     /* Using absolute positioning with high Z Index to allow mobile menu appear above content */ 
@@ -208,46 +216,57 @@ nav ul li ul li a {
     width: 100%;
     z-index: 10;
   }
+
   nav ul li {
     float: none;
   }
+
   nav ul li a {
     padding: 15px;
     line-height: 20px;
   }
+
   nav ul li a:hover::before {
     visibility: hidden;
     -webkit-transform: scaleX(0);
         -ms-transform: scaleX(0);
             transform: scaleX(0);
   }
+
   nav ul li ul li a {
     padding-left: 30px;
   }
+
   .nav-dropdown {
     position: static;
   }
+
   nav ul li a:hover::before {
     visibility: hidden;
     -webkit-transform: scaleX(1);
         -ms-transform: scaleX(1);
             transform: scaleX(1);
   }
+
   nav ul li a:hover {
     color: #fff;
     background-color: #de666a;
     border-color: #de666a;
   }
+
   nav ul li a:last-child:hover {
     border-bottom: 1px solid #de666a;
   }
+
   .desktop-only{
     display: none;
   }
+
   .mobile-only{
     display: block;
   }
 }
+
 .navigation {
   height: 70px;
   background: #ee6e73;
@@ -271,25 +290,28 @@ nav ul li ul li a {
   font-weight: 700;
   font-style: italic;
 }
+
 .brand a,
 .brand a:visited {
   color: #ffffff;
   text-decoration: none;
 }
+
 .fa-user {
   padding-right: 10px;
 }
+
 @media screen and (max-width: 400px) {
   .brand {
     font-size: 2.0em;
   }
 }
 
-
 /* style for recipe cards */
 .recipes {
   padding-top: 20px;
 }
+
 .row-flex {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -298,6 +320,7 @@ nav ul li ul li a {
       flex-wrap: wrap;
   margin-bottom: 50px;
 }
+
 .card {
   height: 100%;
   padding: 5px;
@@ -316,12 +339,15 @@ nav ul li ul li a {
   margin-top: -0.375rem;
   font-size: 1rem;
 }
+
 .recipe-subtitle h6 {
   margin-bottom: 0;
 }
+
 .recipe-author {
   float: left;
 }
+
 .recipe-subtitle:after {
   content: "";
   display: table;
@@ -332,6 +358,7 @@ nav ul li ul li a {
   background-color: #fff;
   border-top: none;
 }
+
 .btn-recipe {
   background-color: #de666a;
   border-color: #de666a;
@@ -340,6 +367,7 @@ nav ul li ul li a {
   transition: box-shadow 250ms ease, -webkit-transform 250ms ease;
   -webkit-transition: box-shadow 250ms ease, -webkit-transform 250ms ease;
 }
+
 .btn-recipe:hover {
   background-color: #cb638b;
   color: #fff;
@@ -349,6 +377,7 @@ nav ul li ul li a {
   -webkit-box-shadow: 0px 4px 8px rgba(38, 38, 38, 0.2);
           box-shadow: 0px 4px 8px rgba(38, 38, 38, 0.2);
 }
+
 /* style for footer */
 footer {
   background-color: #ee6e73;
@@ -360,33 +389,42 @@ footer {
   line-height: 50px;
   width: 100%;
 }
+
 footer .container {
   min-height: 50px;
 }
+
 footer a {
   color: #ffffff;
 }
+
 footer:hover a {
   color: #ffffff;
 }
+
 .fa-github {
   font-size: 1.5em;
 }
+
 .footer-note {
   float: left;
 }
+
 .footer-icon {
   float: right;
 }
+
 .container img {
   width: 100%;
 }
+
 /* Login & Register forms */
 .fa-sign-in-alt,
 .fa-list {
   margin-right: 0.5em;
   color: #737373;
 }
+
 .form-general {
   margin: 50px auto;
   padding: 45px;
@@ -394,30 +432,37 @@ footer:hover a {
   background-color: #ffffff;
   color: #737373;
 }
+
 .login-form {
   max-width: 400px;
 }
+
 .register-form {
   max-width: 600px;
 }
+
 /* recipe form */
 .recipe-form {
   max-width: 800px;
   margin-bottom: 100px;
 }
+
 .add_item {
   height: calc(1.5em + 0.75rem + 2px);
 }
+
 .fa-plus-circle {
   font-size: 40px;
   color: green;
   margin-left: 0.5em;
 }
+
 .fa-minus-circle {
   font-size: 40px;
   color: red;
   margin-left: 0.5em;
 }
+
 /* flash messages */
 .flash-messages {
   color: #222222;
@@ -426,6 +471,8 @@ footer:hover a {
   -webkit-animation: cssAnimation 0s ease-in 5s forwards;
           animation: cssAnimation 0s ease-in 5s forwards;
 }
+
+
 @-webkit-keyframes cssAnimation {
   to {
     width: 0;
@@ -433,6 +480,7 @@ footer:hover a {
     overflow: hidden;
   }
 }
+
 @keyframes cssAnimation {
   to {
     width: 0;
@@ -440,6 +488,7 @@ footer:hover a {
     overflow: hidden;
   }
 }
+
 @media screen and (max-width: 767px) {
   .mobile-space {
     margin-bottom: 100px;
@@ -456,55 +505,71 @@ footer:hover a {
   background-color: #ffffff;
   color: #737373;
 }
+
 .recipe-title{
   padding: 0;
   font-size: 1.4em; 
 }
+
 .cooking-time {
   font-size: 1em;
   padding: 10px 0;
 }
+
 .cooking-time span {
    margin-left: 0.5em;
    display: block;
 }
+
 .cooking-time-icon{
   vertical-align: middle;
   font-size: 36px;
 }
+
 .cooking-time-text{
   padding-left: 5px;
 
 }
+
 .skill-level, .servings{
   font-size: 1em;
 }
+
 .skill-level-icon, .servings-icon{
   vertical-align: middle;
   font-size: 36px;
 }
+
 .skill-level span, .servings span {
   margin-left: 0.48em;
 }
+
 .edit{
   margin-right: 0.5em;
 }
+
 .fa-pencil-alt, .fa-trash-alt{
   margin-right: 0.5em;
 }
+
 /* form validation styling used on register form */
 .error{
   border-color: #e74c3c;
 }
+
 .error-message{
   color: #e74c3c;
 }
+
 .success{
   border-color: #2ecc71;
 }
+
 .success-message{
   color: #2ecc71;
 }
+
+/* style for message at top of filterrecipes template */
 .filter_message{
   margin: 50px auto;
   padding: 45px;
