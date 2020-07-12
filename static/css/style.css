@@ -571,9 +571,10 @@ footer:hover a {
 
 /* style for message at top of filterrecipes template */
 .filter_message{
-  margin: 50px auto;
-  padding: 45px;
-  border-radius: 15px;
+  margin: 5px auto 10px;
+  padding: 5px;
+  border-radius: 5px;
   background-color: #ffffff;
   color: #737373;
+  max-width: 480px;
 }
