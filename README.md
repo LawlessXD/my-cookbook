@@ -311,6 +311,8 @@ I would like to credit [MirslavSvec](https://github.com/MiroslavSvec/DCD_lead) f
 
 How to add fields dynamically was achieved following the guide at [Codeworld](https://www.codexworld.com/add-remove-input-fields-dynamically-using-jquery/)
 
+The recipe details on the site are taken from [BBC Good Food Recipes](https://www.bbcgoodfood.com/recipes).
+
 ### Media
 
 The recipe images used on the site are taken from [BBC Good Food Recipes](https://www.bbcgoodfood.com/recipes).
